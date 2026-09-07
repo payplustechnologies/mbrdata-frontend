@@ -1,4 +1,22 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg?v=2"><title>MBR Data</title></head>
-<body><script>location.replace('./index.html');</script></body></html>
-
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Redirecting…</title>
+</head>
+<body>
+  <script>
+    const userPages = new Set([
+      'dashboard.html', 'developer-api.html', 'forgot-password.html',
+      'history.html', 'login.html', 'pricing.html', 'profile.html',
+      'receipt.html', 'register.html', 'reset-password.html', 'service.html',
+      'support.html', 'wallet.html', 'withdraw.html'
+    ]);
+    const requested = location.pathname.split('/').filter(Boolean).pop() || '';
+    const target = userPages.has(requested) ? `./users/${requested}` : './users/';
+    location.replace(`${target}${location.search}${location.hash}`);
+  </script>
+</body>
+</html>

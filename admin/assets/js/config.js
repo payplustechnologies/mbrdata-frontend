@@ -1,4 +1,4 @@
-import { CLIENT_CONFIG } from '../../../assets/js/client-config.js';
+import { CLIENT_CONFIG } from '../../../users/assets/js/client-config.js';
 
 export { CLIENT_CONFIG };
 
@@ -10,5 +10,5 @@ export const ADMIN_CONFIG = {
   LOGIN_PAGE: './index.html',
   DASHBOARD_PAGE: './dashboard.html',
   // Admin is deployed under /admin on the same origin as the user frontend.
-  USER_FRONTEND_URL: (isLocalDevelopment && localStorage.getItem('userFrontendUrl')) || '../dashboard.html',
+  USER_FRONTEND_URL: (isLocalDevelopment && localStorage.getItem('userFrontendUrl')) || '../users/dashboard.html',
 };

@@ -1,11 +1,17 @@
-# MBR Data Customer Frontend
+# MBR Data Frontend
 
-Static customer frontend extracted from the Laravel Blade application. It can be
-hosted on GitHub Pages and communicates with the Laravel backend over REST.
+Static user and admin frontends hosted together on GitHub Pages. Both interfaces
+communicate with the Laravel backend over REST.
+
+## Interface folders
+
+- `users/` contains the complete customer interface and its assets.
+- `admin/` contains the complete administration interface and its assets.
+- Root `index.html` and `404.html` are compatibility routers for older links.
 
 ## Configure
 
-Edit `assets/js/config.js` and set `API_BASE_URL` to the public Laravel API URL.
+Edit `users/assets/js/client-config.js` and set the client API configuration.
 
 ## Local preview
 
@@ -13,7 +19,8 @@ Edit `assets/js/config.js` and set `API_BASE_URL` to the public Laravel API URL.
 python3 -m http.server 4173 -d mbrfrontend
 ```
 
-Open `http://127.0.0.1:4173/`.
+Open `http://127.0.0.1:4173/users/` for customers or
+`http://127.0.0.1:4173/admin/` for administrators.
 
 ## Admin interface
 

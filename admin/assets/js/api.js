@@ -1,5 +1,5 @@
 import { ADMIN_CONFIG, CLIENT_CONFIG } from './config.js';
-import { applyClientIdentity } from '../../../assets/js/client-config.js';
+import { applyClientIdentity } from '../../../users/assets/js/client-config.js';
 
 applyClientIdentity(CLIENT_CONFIG, { admin: true });
 

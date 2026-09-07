@@ -1,1 +1,58 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg?v=2"><title>Admin Login · MBR Data</title><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"><link rel="stylesheet" href="./assets/css/admin.css?v=20260905-2"></head><body class="auth-body"><main class="auth-shell"><section class="auth-brand"><span class="auth-badge"><i class="bi bi-shield-lock"></i> SECURE ADMINISTRATION</span><h1>Control your platform with confidence.</h1><p>Monitor customers, transactions, services and platform operations from one secure workspace.</p><div class="auth-trust"><span><i class="bi bi-shield-check"></i> Permission controlled</span><span><i class="bi bi-activity"></i> Live operational data</span></div></section><section class="auth-card"><div class="admin-mark"><b>M</b><span><strong>MBR Data</strong><small>Administration Portal</small></span></div><div><small class="eyebrow">WELCOME BACK</small><h2>Admin sign in</h2><p>Enter your authorized administrator credentials.</p></div><form id="login-form"><label>Username or email<div class="input"><i class="bi bi-person"></i><input id="username" autocomplete="username" required placeholder="Enter admin username"></div></label><label>Password<div class="input"><i class="bi bi-lock"></i><input id="password" type="password" autocomplete="current-password" required placeholder="Enter your password"><button type="button" id="toggle-password"><i class="bi bi-eye"></i></button></div></label><button class="submit" type="submit"><i class="bi bi-box-arrow-in-right"></i> Sign In Securely</button></form><footer>Authorized personnel only · Protected admin access</footer></section></main><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script><script type="module" src="./assets/js/login.js?v=20260905-2"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#132b86">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/favicon.svg?v=3">
+  <title>Secure Admin Login · MBR Data</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/admin.css?v=20260907-2">
+</head>
+<body class="auth-body admin-login-v2">
+  <main class="auth-shell">
+    <section class="auth-brand" aria-label="Administration portal introduction">
+      <div class="auth-brand-lockup">
+        <span class="auth-brand-logo"><img data-client-logo src="./assets/img/mbr-brand.jpg" alt="Website logo"></span>
+        <span><strong data-brand-name>MBR Data</strong><small>ADMINISTRATION PORTAL</small></span>
+      </div>
+      <span class="auth-badge"><i class="bi bi-shield-check"></i> SECURE CONTROL CENTRE</span>
+      <h1>Everything you need to run your platform.</h1>
+      <p>Manage customers, monitor transactions, configure services and keep your digital business moving from one protected workspace.</p>
+      <div class="auth-feature-grid">
+        <article><i class="bi bi-graph-up-arrow"></i><span><b>Live oversight</b><small>Monitor operations and sales</small></span></article>
+        <article><i class="bi bi-people"></i><span><b>User control</b><small>Manage customer accounts</small></span></article>
+        <article><i class="bi bi-sliders"></i><span><b>Service tools</b><small>Configure products securely</small></span></article>
+      </div>
+      <div class="auth-security-note"><i class="bi bi-lock-fill"></i><span><b>Protected administration</b><small>Access is restricted to authorized personnel.</small></span><em><i></i> Secure</em></div>
+    </section>
+
+    <section class="auth-card">
+      <div class="auth-card-top">
+        <div class="admin-mark"><img data-client-logo src="./assets/img/mbr-brand.jpg" alt="Website logo"><span><strong data-brand-name>MBR Data</strong><small>Administrator Access</small></span></div>
+        <span class="auth-secure-pill"><i class="bi bi-shield-lock-fill"></i> Protected</span>
+      </div>
+      <div class="auth-welcome">
+        <small class="eyebrow">WELCOME BACK</small>
+        <h2>Sign in to your dashboard</h2>
+        <p>Enter your administrator credentials to continue securely.</p>
+      </div>
+      <form id="login-form">
+        <label>Username or email
+          <div class="input"><i class="bi bi-person"></i><input id="username" autocomplete="username" required placeholder="Enter username or email"></div>
+        </label>
+        <label>Password
+          <div class="input"><i class="bi bi-lock"></i><input id="password" type="password" autocomplete="current-password" required placeholder="Enter your password"><button type="button" id="toggle-password" aria-label="Show password"><i class="bi bi-eye"></i></button></div>
+        </label>
+        <div class="auth-form-note"><span><i class="bi bi-check-circle-fill"></i> Encrypted sign-in</span><span>Authorized admins only</span></div>
+        <button class="submit" type="submit"><span>Sign In Securely</span><i class="bi bi-arrow-right"></i></button>
+      </form>
+      <footer><i class="bi bi-shield-check"></i> Secured administration · A Product of PayPlus Technologies</footer>
+    </section>
+  </main>
+  <div class="auth-orb auth-orb-one"></div><div class="auth-orb auth-orb-two"></div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="./assets/js/login.js?v=20260907-2"></script>
+</body>
+</html>

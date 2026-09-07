@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./assets/vendor/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assets/vendor/css/fonts.min.css">
   <link rel="stylesheet" href="./assets/vendor/css/atlantis.min.css">
-  <link rel="stylesheet" href="./assets/css/admin.css?v=20260905-2">
+  <link rel="stylesheet" href="./assets/css/admin.css?v=20260907-1">
 </head>
 <body class="legacy-admin">
   <div class="wrapper">
@@ -91,6 +91,25 @@
               </div>
             </div>
             <div class="card-body">
+              <section class="transaction-export-card" aria-labelledby="transaction-export-title">
+                <div class="transaction-export-heading">
+                  <span class="transaction-export-icon"><i class="fas fa-file-pdf"></i></span>
+                  <div><h5 id="transaction-export-title">Export Transaction Report</h5><p>Download a professionally formatted PDF for your selected reporting period.</p></div>
+                </div>
+                <div class="transaction-export-controls">
+                  <div class="transaction-export-periods" role="group" aria-label="Report period">
+                    <button class="active" type="button" data-export-period="week"><i class="fas fa-calendar-week"></i> This Week</button>
+                    <button type="button" data-export-period="month"><i class="far fa-calendar-alt"></i> This Month</button>
+                    <button type="button" data-export-period="custom"><i class="fas fa-sliders-h"></i> Custom Range</button>
+                  </div>
+                  <div class="transaction-export-dates" id="export-custom-dates" hidden>
+                    <label>From<input id="export-from" class="form-control" type="date"></label>
+                    <label>To<input id="export-to" class="form-control" type="date"></label>
+                  </div>
+                  <button id="export-transactions" type="button" class="btn btn-primary transaction-export-button"><i class="fas fa-download mr-1"></i> Download PDF</button>
+                </div>
+                <small class="transaction-export-note"><i class="fas fa-info-circle"></i> The report follows the active status tab and search filter.</small>
+              </section>
               <div class="d-flex justify-content-end mb-3"><button id="bulk-delete" class="btn btn-danger btn-sm" disabled><i class="fas fa-trash-alt mr-1"></i> Delete Selected (<span id="selected-count">0</span>)</button></div>
               <div class="transaction-filter-form"><div class="row"><div class="col-md-4"><div class="form-group"><label>Search</label><input id="search" class="form-control" placeholder="Username, transid, service, mobile"></div></div><div class="col-md-3"><div class="form-group"><label>From</label><input id="from" class="form-control" type="date"></div></div><div class="col-md-3"><div class="form-group"><label>To</label><input id="to" class="form-control" type="date"></div></div><div class="col-md-2"><div class="form-group tx-filter-actions"><button id="filter-transactions" class="btn btn-primary btn-block">Filter</button><button id="reset-transactions" class="btn btn-secondary btn-block">Reset</button></div></div></div></div>
               <div class="table-responsive">
@@ -121,6 +140,8 @@
   </div>
   <div id="scrim"></div>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script type="module" src="./assets/js/transactions.js?v=20260905-2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+  <script type="module" src="./assets/js/transactions.js?v=20260907-1"></script>
 </body>
 </html>
