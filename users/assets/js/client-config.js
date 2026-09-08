@@ -15,7 +15,7 @@ const defaultConfig = {
   license: Object.freeze({ id: 'PPT-MBRDATA' }),
 
   api: Object.freeze({
-    baseUrl: 'https://payplustechnologies.com/api',
+    baseUrl: 'https://mbrdata.com/api',
     timeoutMs: 15000,
   }),
 
@@ -85,6 +85,8 @@ const CLIENT_PROFILES = Object.freeze({
 
 // Add production domains here, without https:// or a trailing slash.
 const HOSTNAME_PROFILE = Object.freeze({
+  'mbrdata.com': 'mbrdata',
+  'www.mbrdata.com': 'mbrdata',
   'app.mbrdata.com': 'mbrdata',
   'payplustechnologies.github.io': 'mbrdata',
   // 'app.nurdata.com': 'nur-data',
