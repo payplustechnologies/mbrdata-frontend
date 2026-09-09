@@ -7,7 +7,7 @@ bootShell('history');
 let receipt = {};
 try { receipt = JSON.parse(sessionStorage.getItem('mbrLastReceipt') || '{}'); } catch (_) {}
 
-if (!Object.keys(receipt).length) location.replace('history.html');
+if (!Object.keys(receipt).length) location.replace('/users/history/');
 
 const value = (...keys) => keys.map((key) => receipt[key]).find((item) => item !== undefined && item !== null && String(item).trim() !== '');
 const reference = String(value('transid', 'reference', 'request_id', 'id') || 'N/A');

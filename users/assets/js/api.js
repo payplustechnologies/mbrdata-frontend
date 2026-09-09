@@ -115,19 +115,19 @@ export function notify(message, type = 'info') {
 export function renderSidebarNavigation() {
   const nav = document.querySelector('.side nav');
   if (!nav) return;
-  const page = location.pathname.split('/').pop() || 'dashboard.html';
+  const page = location.pathname.split('/').filter(Boolean).pop() || 'dashboard';
   const items = [
-    ['dashboard.html', 'speedometer2', 'Dashboard', false],
-    ['service.html?service=data', 'router-fill', 'Buy Data', false],
-    ['service.html?service=airtime', 'phone-fill', 'Buy Airtime', false],
-    ['wallet.html', 'wallet-fill', 'Add Money', false],
-    ['history.html', 'receipt-cutoff', 'Transaction History', false],
-    ...(CLIENT_CONFIG.features.pricing === false ? [] : [['pricing.html', 'tag-fill', 'Pricing', false]]),
-    ...(CLIENT_CONFIG.features.developerApi === false ? [] : [['developer-api.html', 'braces-asterisk', 'Developer API', false]]),
-    ['profile.html', 'person-badge-fill', 'Profile', false],
-    ['support.html', 'headset', 'Support', false],
+    ['/users/dashboard/', 'speedometer2', 'Dashboard', false],
+    ['/users/service/?service=data', 'router-fill', 'Buy Data', false],
+    ['/users/service/?service=airtime', 'phone-fill', 'Buy Airtime', false],
+    ['/users/wallet/', 'wallet-fill', 'Add Money', false],
+    ['/users/history/', 'receipt-cutoff', 'Transaction History', false],
+    ...(CLIENT_CONFIG.features.pricing === false ? [] : [['/users/pricing/', 'tag-fill', 'Pricing', false]]),
+    ...(CLIENT_CONFIG.features.developerApi === false ? [] : [['/users/developer-api/', 'braces-asterisk', 'Developer API', false]]),
+    ['/users/profile/', 'person-badge-fill', 'Profile', false],
+    ['/users/support/', 'headset', 'Support', false],
   ];
-  nav.innerHTML = `<small>MAIN MENU</small>${items.map(([href, icon, label, soon]) => `<a href="${soon ? '#' : href}" class="${page === href ? 'active' : ''}" ${soon ? 'data-soon' : ''}><i class="bi bi-${icon}"></i><span>${label}</span>${soon ? '<em>soon</em>' : ''}</a>`).join('')}`;
+  nav.innerHTML = `<small>MAIN MENU</small>${items.map(([href, icon, label, soon]) => { const route = new URL(href, location.origin).pathname.split('/').filter(Boolean).pop(); return `<a href="${soon ? '#' : href}" class="${page === route ? 'active' : ''}" ${soon ? 'data-soon' : ''}><i class="bi bi-${icon}"></i><span>${label}</span>${soon ? '<em>soon</em>' : ''}</a>`; }).join('')}`;
 }
 
 renderSidebarNavigation();
