@@ -3,12 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex">
-  <title>Opening MBR Data…</title>
-  <script>
-    const page = localStorage.getItem('authToken') ? 'dashboard.html' : 'login.html';
-    location.replace(`./users/${page}${location.search}${location.hash}`);
-  </script>
+  <meta name="theme-color" content="#12318f">
+  <meta name="description" content="Buy data, airtime and pay essential bills securely with MBR Data.">
+  <title>MBR Data · Data, Airtime & Bill Payments</title>
+  <link rel="icon" type="image/svg+xml" href="./users/assets/img/favicon.svg?v=3">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./users/assets/css/landing.css?v=1">
 </head>
-<body></body>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./"><span class="brand-mark">M</span><span>MBR Data<small>DIGITAL SERVICES</small></span></a>
+    <nav id="site-nav"><a href="#services">Services</a><a href="#how">How it works</a><a href="#security">Security</a><a href="#support">Support</a></nav>
+    <div class="header-actions"><a class="button ghost" href="./users/login.html">Sign in</a><a class="button primary" href="./users/register.html">Create account</a><button id="menu" aria-label="Open navigation"><i class="bi bi-list"></i></button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow"><i></i> YOUR EVERYDAY DIGITAL WALLET</span><h1>Simple payments.<br><em>More possibilities.</em></h1><p>Buy data, recharge airtime and pay essential bills in seconds. One secure wallet keeps everything connected and under control.</p><div class="hero-actions"><a class="button primary" href="./users/register.html">Open a free account <i class="bi bi-arrow-up-right"></i></a><a class="button ghost" href="#services">Explore services</a></div><div class="trust"><span><i class="bi bi-shield-check"></i> Secure transactions</span><span><i class="bi bi-lightning-charge"></i> Instant delivery</span><span><i class="bi bi-headset"></i> Helpful support</span></div></div>
+      <div class="app-preview"><div class="preview-top"><span><small>Good afternoon</small><b>Welcome back</b></span><i class="bi bi-bell"></i></div><div class="balance"><small>AVAILABLE BALANCE</small><strong>₦25,850.00</strong><span>Bonus: ₦450 <b>+ Add money</b></span></div><h3>Quick services</h3><div class="quick"><span><i class="bi bi-reception-4"></i>Data</span><span><i class="bi bi-phone"></i>Airtime</span><span><i class="bi bi-lightning"></i>Power</span><span><i class="bi bi-tv"></i>TV</span></div><div class="success"><i class="bi bi-check-lg"></i><span><small>Transaction complete</small><b>Delivered instantly</b></span></div></div>
+    </section>
+
+    <section class="section" id="services"><div class="section-title"><span>EVERYTHING IN ONE PLACE</span><h2>Essential services made effortless.</h2><p>Handle everyday payments without moving between multiple platforms.</p></div><div class="service-grid">
+      <article class="featured"><i class="bi bi-reception-4"></i><h3>Mobile Data</h3><p>Affordable plans across supported networks, delivered directly to any number.</p></article>
+      <article><i class="bi bi-phone"></i><h3>Airtime Recharge</h3><p>Recharge yourself, friends or customers instantly from your secure wallet.</p></article>
+      <article><i class="bi bi-lightning-charge"></i><h3>Electricity Bills</h3><p>Validate meter details and purchase prepaid or postpaid electricity tokens.</p></article>
+      <article><i class="bi bi-tv"></i><h3>Cable TV</h3><p>Renew television subscriptions conveniently without leaving your home.</p></article>
+      <article><i class="bi bi-mortarboard"></i><h3>Exam PINs</h3><p>Purchase supported examination result-checking PINs quickly and securely.</p></article>
+      <article><i class="bi bi-person-vcard"></i><h3>Digital Verification</h3><p>Access available identity and verification services from one account.</p></article>
+    </div></section>
+
+    <section class="section steps-section" id="how"><div class="section-title"><span>HOW IT WORKS</span><h2>Three simple steps.</h2></div><div class="steps"><article><b>01</b><i class="bi bi-person-plus"></i><h3>Create your account</h3><p>Register securely and access your personal dashboard.</p></article><article><b>02</b><i class="bi bi-wallet2"></i><h3>Fund your wallet</h3><p>Add money through an available funding channel.</p></article><article><b>03</b><i class="bi bi-check2-circle"></i><h3>Choose and pay</h3><p>Review your service details and complete payment.</p></article></div></section>
+
+    <section class="security" id="security"><div class="security-icon"><i class="bi bi-shield-lock-fill"></i></div><div><span>SECURITY YOU CAN TRUST</span><h2>Your account deserves serious protection.</h2><p>Protected authentication, transaction confirmation and clear account records are built into your experience.</p><ul><li><i class="bi bi-check-circle-fill"></i> Secure account access</li><li><i class="bi bi-check-circle-fill"></i> Transaction PIN confirmation</li><li><i class="bi bi-check-circle-fill"></i> Complete receipts and history</li></ul></div></section>
+
+    <section class="cta" id="support"><div><span>READY WHEN YOU ARE</span><h2>One wallet for everyday digital services.</h2><p>Create your MBR Data account and start making simpler payments.</p></div><div><a class="button light" href="./users/register.html">Create account</a><a class="button outline-light" href="mailto:support@mbrdata.com">Contact support</a></div></section>
+  </main>
+
+  <footer><div class="footer-main"><div><a class="brand light-brand" href="./"><span class="brand-mark">M</span><span>MBR Data<small>DIGITAL SERVICES</small></span></a><p>A secure platform for data, airtime, bills and essential digital services.</p></div><div><b>Platform</b><a href="#services">Services</a><a href="./users/pricing.html">Pricing</a><a href="./users/login.html">Sign in</a></div><div><b>Support</b><a href="mailto:support@mbrdata.com">support@mbrdata.com</a><a href="#security">Security</a></div></div><div class="copyright"><span>© 2026 MBR Data. All rights reserved.</span><span>A Product of <a href="https://payplustechnologies.com/" target="_blank" rel="noopener">PayPlus Technologies</a></span></div></footer>
+  <script>const menu=document.querySelector('#menu'),nav=document.querySelector('#site-nav');menu.onclick=()=>nav.classList.toggle('open');nav.querySelectorAll('a').forEach(a=>a.onclick=()=>nav.classList.remove('open'));</script>
+</body>
 </html>
