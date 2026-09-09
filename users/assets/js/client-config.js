@@ -15,7 +15,7 @@ const defaultConfig = {
   license: Object.freeze({ id: 'PPT-MBRDATA' }),
 
   api: Object.freeze({
-    baseUrl: 'https://mbrdata.com/api',
+    baseUrl: 'https://app.mbrdata.com/api',
     timeoutMs: 15000,
   }),
 
