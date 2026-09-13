@@ -126,6 +126,6 @@ html[data-theme=dark] .transaction-export-card{border-color:rgba(255,255,255,.1)
 @media(max-width:850px){.admin-login-v2 .auth-shell{padding:24px;grid-template-columns:1fr}.admin-login-v2 .auth-brand{display:none}.admin-login-v2 .auth-card{width:min(500px,100%);margin:auto}}
 @media(max-width:520px){.admin-login-v2 .auth-shell{padding:14px}.admin-login-v2 .auth-card{padding:25px 20px 21px;border-radius:22px}.auth-secure-pill{display:none}.auth-welcome{margin-top:29px}.admin-login-v2 .auth-card h2{font-size:24px}.auth-form-note span:last-child{display:none}.admin-login-v2 .auth-card footer{font-size:8px}}
 /* Branded network selector used by API Integration. */
-.legacy-admin .network-picker .network-pill{min-width:96px;padding:7px 11px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 4px 12px rgba(31,45,61,.06);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.legacy-admin .network-picker .network-pill{min-width:82px;padding:6px 9px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(31,45,61,.06);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;font-size:13px}
 .legacy-admin .network-picker .network-pill:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(31,45,61,.12)}
-.legacy-admin .network-picker .network-pill img{width:24px;height:24px;border-radius:50%;object-fit:contain;background:#fff;padding:1px;flex:0 0 24px}
+.legacy-admin .network-picker .network-pill img{width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;border-radius:50%;object-fit:contain;background:#fff;padding:0;flex:0 0 18px}
