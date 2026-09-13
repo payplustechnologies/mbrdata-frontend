@@ -47,7 +47,7 @@ form.addEventListener('submit', async (event) => {
   const username = document.querySelector('#username').value.trim();
   const password = passwordInput.value;
   submit.disabled = true;
-  await showProcessing('Signing you in...', 'Verifying your administrator details securely.');
+  showProcessing('Signing you in...', 'Verifying your administrator details securely.');
 
   try {
     const result = await api('/admin/login', { method: 'POST', body: JSON.stringify({ username, password }) });
