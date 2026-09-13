@@ -4,7 +4,7 @@ import { api, applyTheme, clearSession, session } from './api.js';
 
 export function initAdminShell(active = '') {
   if (!session().token) { location.replace(ADMIN_CONFIG.LOGIN_PAGE); return null; }
-  const adminCss=document.querySelector('link[href*="assets/css/admin.css"]');if(adminCss){const cssUrl=new URL(adminCss.href);cssUrl.searchParams.set('v','20260913-5');adminCss.href=cssUrl.href}
+  const adminCss=document.querySelector('link[href*="assets/css/admin.css"]');if(adminCss){const cssUrl=new URL(adminCss.href);cssUrl.searchParams.set('v','20260913-6');adminCss.href=cssUrl.href}
   if (!document.querySelector('link[data-ubuntu-font]')) document.head.insertAdjacentHTML('beforeend','<link data-ubuntu-font rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">');
   applyClientIdentity(CLIENT_CONFIG,{admin:true});
   const savedBrand=localStorage.getItem('adminBrandColor');if(savedBrand&&CLIENT_CONFIG.branding.allowBackendOverride)document.documentElement.style.setProperty('--brand',savedBrand);

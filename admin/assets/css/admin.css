@@ -129,4 +129,5 @@ html[data-theme=dark] .transaction-export-card{border-color:rgba(255,255,255,.1)
 .legacy-admin .network-picker .network-pill{min-width:82px;padding:6px 9px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-shadow:0 4px 12px rgba(31,45,61,.06);transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;font-size:13px}
 .legacy-admin .network-picker .network-pill:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(31,45,61,.12)}
 .legacy-admin .network-picker .network-pill img{width:18px!important;height:18px!important;max-width:18px!important;max-height:18px!important;border-radius:50%;object-fit:contain;background:#fff;padding:0;flex:0 0 18px}
-.legacy-admin .gateway-tabs .btn i{width:14px;font-size:13px!important;text-align:center}
+.legacy-admin .gateway-tabs .btn i{width:14px!important;height:14px!important;max-width:14px!important;max-height:14px!important;font-size:12px!important;line-height:14px!important;text-align:center}
+.legacy-admin .gateway-coming-soon>i{width:24px!important;height:24px!important;margin:0 auto 12px!important;display:block;font-size:22px!important;line-height:24px!important}

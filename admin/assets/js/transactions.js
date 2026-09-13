@@ -1,5 +1,5 @@
 import { api, money, session } from './api.js';
-import { backgroundRefresh, escapeHtml, handleAdminError, initAdminShell, loading, openLegacyModal, pageCache } from './shell.js?v=20260913-5';
+import { backgroundRefresh, escapeHtml, handleAdminError, initAdminShell, loading, openLegacyModal, pageCache } from './shell.js?v=20260913-6';
 
 initAdminShell('transactions');
 const $ = (selector) => document.querySelector(selector);
