@@ -4,7 +4,7 @@ import { api, applyTheme, clearSession, session } from './api.js';
 
 export function initAdminShell(active = '') {
   if (!session().token) { location.replace(ADMIN_CONFIG.LOGIN_PAGE); return null; }
-  const adminCss=document.querySelector('link[href*="assets/css/admin.css"]');if(adminCss){const cssUrl=new URL(adminCss.href);cssUrl.searchParams.set('v','20260913-6');adminCss.href=cssUrl.href}
+  const adminCss=document.querySelector('link[href*="assets/css/admin.css"]');if(adminCss){const cssUrl=new URL(adminCss.href);cssUrl.searchParams.set('v','20260913-7');adminCss.href=cssUrl.href}
   if (!document.querySelector('link[data-ubuntu-font]')) document.head.insertAdjacentHTML('beforeend','<link data-ubuntu-font rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap">');
   applyClientIdentity(CLIENT_CONFIG,{admin:true});
   const savedBrand=localStorage.getItem('adminBrandColor');if(savedBrand&&CLIENT_CONFIG.branding.allowBackendOverride)document.documentElement.style.setProperty('--brand',savedBrand);
@@ -21,7 +21,7 @@ export function initAdminShell(active = '') {
     menuButton.setAttribute('title', 'Menu');
   }
   const nav = document.querySelector('.nav-primary');
-  const group=(permission,activeKey,icon,label,items)=>`<li class="nav-item" data-nav="${activeKey}" data-permission="${permission}"><a href="#" data-submenu-toggle><i class="${icon}"></i><p>${label}</p><span class="caret"></span></a><div class="collapse"><ul class="nav nav-collapse">${items.map(([text,href])=>`<li><a href="${href}"><span class="sub-item">${text}</span></a></li>`).join('')}</ul></div></li>`;
+  const group=(permission,activeKey,icon,label,items)=>`<li class="nav-item" data-nav="${activeKey}" data-permission="${permission}"><a href="javascript:void(0)" role="button" data-submenu-toggle><i class="${icon}"></i><p>${label}</p><span class="caret"></span></a><div class="collapse"><ul class="nav nav-collapse">${items.map(([text,href])=>`<li><a href="${href}"><span class="sub-item">${text}</span></a></li>`).join('')}</ul></div></li>`;
   if (nav) nav.innerHTML = `
     <li class="nav-item" data-nav="dashboard"><a href="/admin/dashboard/"><i class="fas fa-home"></i><p>Dashboard</p></a></li>
     ${group('users','users','fas fa-user','Manage Users Account',[['Verified Users','/admin/users/?status=1'],['Pending Users KYC','/admin/users/?scope=kyc'],['Unverified User','/admin/users/?status=0'],['Banned User','/admin/users/?status=2']])}
