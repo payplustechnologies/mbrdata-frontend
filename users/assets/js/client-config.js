@@ -70,8 +70,7 @@ const CLIENT_PROFILES = Object.freeze({
     shortName: 'ND',
     tagline: 'Simple, reliable digital services',
     license: { id: 'PPT-NUR-DATA' },
-    // Add Nur Data's production API and contacts when supplied.
-    api: { ...defaultConfig.api },
+    api: { ...defaultConfig.api, baseUrl: 'https://app.nurdatasub.com/api' },
     branding: {
       ...defaultConfig.branding,
       logoUrl: assetUrl('../img/nur-data-logo.svg'),
@@ -88,19 +87,27 @@ const HOSTNAME_PROFILE = Object.freeze({
   'mbrdata.com': 'mbrdata',
   'www.mbrdata.com': 'mbrdata',
   'app.mbrdata.com': 'mbrdata',
+  'nurdatasub.com': 'nur-data',
+  'www.nurdatasub.com': 'nur-data',
+  'app.nurdatasub.com': 'nur-data',
   'payplustechnologies.github.io': 'mbrdata',
-  // 'app.nurdata.com': 'nur-data',
 });
 
 function selectedProfileKey() {
+  // A live hostname always owns its profile; query parameters cannot switch
+  // a production site to another client's API.
+  const mapped = HOSTNAME_PROFILE[location.hostname];
+  if (mapped) return mapped;
+
   const requested = new URLSearchParams(location.search).get('client');
-  if (requested && Object.hasOwn(CLIENT_PROFILES, requested)) {
+  if (['localhost', '127.0.0.1'].includes(location.hostname)
+    && requested && Object.hasOwn(CLIENT_PROFILES, requested)) {
     sessionStorage.setItem('clientProfile', requested);
     return requested;
   }
-  return HOSTNAME_PROFILE[location.hostname]
-    || sessionStorage.getItem('clientProfile')
-    || 'mbrdata';
+  return ['localhost', '127.0.0.1'].includes(location.hostname)
+    ? sessionStorage.getItem('clientProfile') || 'mbrdata'
+    : 'mbrdata';
 }
 
 export const CLIENT_CONFIG = Object.freeze(CLIENT_PROFILES[selectedProfileKey()] || defaultConfig);
