@@ -13,7 +13,7 @@ const excluded = new Set(['.git', '.github', '.idea', '.vscode', 'dist', 'docs',
 if (existsSync(output)) rmSync(output, { recursive: true, force: true });
 mkdirSync(dirname(output), { recursive: true });
 for (const entry of readdirSync(source, { withFileTypes: true })) {
-  if (excluded.has(entry.name) || ['.gitignore', '.DS_Store', 'README.md'].includes(entry.name)) continue;
+  if (excluded.has(entry.name) || ['.gitignore', '.DS_Store', 'README.md', 'dev_server.py'].includes(entry.name)) continue;
   cpSync(join(source, entry.name), join(output, entry.name), {
     recursive: true,
     filter(path) {
@@ -52,5 +52,9 @@ copyFileSync(
   join(output, 'users', 'assets', 'img', 'nur-data-logo.svg'),
   join(output, 'admin', 'assets', 'img', 'nur-data-logo.svg'),
 );
+
+// GitHub Pages reads the custom domain from the published branch root.
+writeFileSync(join(output, 'CNAME'), 'nurdatasub.com\n');
+writeFileSync(join(output, '.nojekyll'), '');
 
 console.log(`Nur Data frontend built at ${output}`);
