@@ -76,7 +76,7 @@ const CLIENT_PROFILES = Object.freeze({
       logoUrl: assetUrl('../img/nur-data-logo.svg'),
       faviconUrl: assetUrl('../img/nur-data-logo.svg'),
     },
-    support: { ...defaultConfig.support },
+    support: { ...defaultConfig.support, email: 'support@nurdata.com' },
     company: { ...defaultConfig.company },
     features: { ...defaultConfig.features },
   },

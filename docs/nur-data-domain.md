@@ -6,25 +6,35 @@ which sends browser API requests to `https://app.nurdatasub.com/api` and uses
 the public licence identifier `PPT-NUR-DATA`. The existing `mbrdata.com`
 hostnames continue selecting the MBR Data profile and API.
 
-## Before publishing
+## Deploying the frontend on the Nur Data server
 
-1. Deploy a **separate Nur Data backend** at `https://app.nurdatasub.com`.
-   Its `/api` routes must be reachable. Configure its own database, CORS origin
-   (`https://nurdatasub.com` and optionally `https://www.nurdatasub.com`), and
-   signed licence for `app.nurdatasub.com`. Keep private licence tokens and API
-   credentials on that backend, never in this frontend repository.
-2. Add Nur Data's support email and WhatsApp number to the public client
-   profile and public landing/legal pages. Review the legal policy text with
-   the business owner before publication.
-3. Publish the shared frontend through a **second Pages deployment** with
-   `nurdatasub.com` as that deployment's custom domain. Keep the current
-   MBR Data Pages deployment and its `mbrdata.com` setting unchanged. The
-   second deployment can build from this same source repository; it does not
-   require a separately maintained frontend codebase.
-4. After the second Pages site is configured, replace the Namecheap URL
-   forwarding for `@` and `www` with the DNS records shown by GitHub Pages.
-   Verify HTTPS and both hostnames in the Pages settings.
+1. Keep the **separate Nur Data backend** at `https://app.nurdatasub.com`.
+   Configure its own database, CORS origins (`https://nurdatasub.com` and
+   optionally `https://www.nurdatasub.com`), and signed licence for
+   `app.nurdatasub.com`. Keep private licence tokens and API credentials on
+   that backend, never in this frontend repository.
+2. Generate a Nur Data package from this shared frontend source:
 
-Do not point `nurdatasub.com` at the current MBR Data Pages deployment: a
-GitHub Pages site accepts one custom domain and the current landing page
-contains MBR Data content until the public branding pass is complete.
+   ```sh
+   node scripts/build-client.mjs nur-data
+   cd dist/nur-data
+   zip -qr ../nur-data-frontend.zip .
+   ```
+
+   The package uses the Nur Data logo and `support@nurdata.com` across static
+   pages. Until a Nur Data support number is provided, its public WhatsApp
+   links are omitted. Review the legal policy content before publication.
+3. In cPanel, open **Domains** and find the document root of
+   `nurdatasub.com`. Upload `dist/nur-data-frontend.zip` to that exact folder
+   using File Manager, then extract it **there**. `index.html`, `users/`, and
+   `admin/` must be directly inside the document root, not inside an extra
+   `nur-data` folder. Do not upload the package into `app.nurdatasub.com`,
+   which is the Laravel API's document root.
+4. Open `https://nurdatasub.com/`, `/users/login/`, and `/admin/`. Confirm
+   that the page title says Nur Data and browser API calls go to
+   `https://app.nurdatasub.com/api`. If `Index of /` still appears, the files
+   were extracted into the wrong directory or the document root is incorrect.
+
+The MBR Data Pages site and its `mbrdata.com` domain stay unchanged. A future
+Nur Data release is built from the same source and uploaded to Nur Data's
+document root.
