@@ -10,7 +10,11 @@ if (client !== 'nur-data') {
 
 const output = join(source, 'dist', client);
 const excluded = new Set(['.git', '.github', '.idea', '.vscode', 'dist', 'docs', 'scripts']);
-if (existsSync(output)) rmSync(output, { recursive: true, force: true });
+// The published Nur Data checkout can live in dist/nur-data. Never delete
+// its .git directory when refreshing the generated site.
+if (existsSync(output) && !existsSync(join(output, '.git'))) {
+  rmSync(output, { recursive: true, force: true });
+}
 mkdirSync(dirname(output), { recursive: true });
 for (const entry of readdirSync(source, { withFileTypes: true })) {
   if (excluded.has(entry.name) || ['.gitignore', '.DS_Store', 'README.md', 'dev_server.py'].includes(entry.name)) continue;
@@ -26,6 +30,7 @@ for (const entry of readdirSync(source, { withFileTypes: true })) {
 // The browser profile selects the Nur Data API. HTML is branded at build time
 // so the landing and legal pages are correct even before JavaScript runs.
 const htmlFiles = (directory) => readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+  if (entry.name === '.git') return [];
   const path = join(directory, entry.name);
   return entry.isDirectory() ? htmlFiles(path) : entry.name.endsWith('.html') ? [path] : [];
 });
