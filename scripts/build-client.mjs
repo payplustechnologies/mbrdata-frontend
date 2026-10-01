@@ -59,7 +59,10 @@ copyFileSync(
 );
 
 // GitHub Pages reads the custom domain from the published branch root.
-writeFileSync(join(output, 'CNAME'), 'nurdatasub.com\n');
+// Keep any CNAME already managed in the published checkout intact.
+if (!existsSync(join(output, 'CNAME'))) {
+  writeFileSync(join(output, 'CNAME'), 'nurdatasub.com\n');
+}
 writeFileSync(join(output, '.nojekyll'), '');
 
 console.log(`Nur Data frontend built at ${output}`);
